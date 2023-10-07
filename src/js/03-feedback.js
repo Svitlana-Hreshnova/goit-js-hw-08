@@ -32,12 +32,18 @@ form.addEventListener('input', () => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+
+  if (!emailInput.value || !messageInput.value) {
+    alert('Будь ласка, заповніть усі поля форми.');
+    return;
+  }
+
   localStorage.removeItem(storageKey);
   emailInput.value = '';
   messageInput.value = '';
+
   console.log({
     email: emailInput.value,
     message: messageInput.value,
   });
 });
-
